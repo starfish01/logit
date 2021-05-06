@@ -2,20 +2,19 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use App\Models\Activity;
+use App\Models\User;
+use App\Models\TimeLog;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-use function Ramsey\Uuid\v1;
-
-class ActivityFactory extends Factory
+class TimeLogFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Activity::class;
+    protected $model = TimeLog::class;
 
     /**
      * Define the model's default state.
@@ -26,8 +25,9 @@ class ActivityFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'activity' => $this->faker->sentence,
-            'active_time_log' => null
+            'activity_id' => Activity::factory(),
+            'start' => time(),
+            'end' => strtotime('+33 minutes')+33
         ];
     }
 }

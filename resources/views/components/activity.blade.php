@@ -4,27 +4,25 @@
     <div class="bg-gray-900 border border-gray-800 rounded shadow p-2">
         <div class="flex flex-row items-center">
             <div class="flex-shrink pr-4">
-                {{-- TODO if active red else green --}}
-                <div class="rounded p-3 bg-green-600">
-                    {{-- TODO Add Icons --}}
-                    @if ($activity->end)
-                        <i class="fa fa-wallet fa-2x fa-fw fa-inverse"></i>
+                <div class="rounded p-3 {{ $activity->active_time_log ? 'bg-red-600' : 'bg-green-600' }}">
+                    @if ($activity->active_time_log)
+                        <i class="fa fa-stop fa-2x fa-fw fa-inverse"></i>
                     @else
-                        <i class="fa fa-wallet fa-2x fa-fw fa-inverse"></i>
+                        <i class="fa fa-play fa-2x fa-fw fa-inverse"></i>
                     @endif
                 </div>
             </div>
             <div class="flex-1 text-right md:text-center">
-                <h5 class="font-bold uppercase text-gray-400">
+                <h3 class="text-left text-gray-100">
                     {{ $activity->activity }}
-                </h5>
-                <h3 class="font-bold text-3xl text-gray-600">
+                </h3>
+
+                <h3 class="text-left text-gray-600">
                     {{-- TODO Work out the time passed/ display spining wheel --}}
-                    Start: {{ date('h:s a', $activity->start) }}
-                    @if ($activity->end)
-                        End: {{ date('h:s a', $activity->end) }}
+                    @if (!$activity->active_time_log)
+                        <span class="font-bold">Total Time:</span> {{ $activity->total_time }}
                     @endif
-                    {{-- <span class="text-green-500"><i class="fas fa-caret-up"></i></span> --}}
+
                 </h3>
             </div>
         </div>

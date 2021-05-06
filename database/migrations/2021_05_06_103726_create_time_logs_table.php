@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateActivitiesTable extends Migration
+class CreateTimeLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateActivitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('activities', function (Blueprint $table) {
+        Schema::create('time_logs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('activity');
-            $table->string('active_time_log')->nullable();
+            $table->foreignId('activity_id');
+            $table->string('start');
+            $table->string('end');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateActivitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('activities');
+        Schema::dropIfExists('time_logs');
     }
 }
