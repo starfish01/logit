@@ -1,14 +1,18 @@
 <x-layout>
 
+    <h5 class="font-bold uppercase text-gray-400">Todays Activities</h5>
 
-    <div class="flex justify-center">
-        <div class="bg-white shadow-xl rounded-lg w-1/2">
-            <ul class="divide-y divide-gray-300">
-                @foreach ($activities as $activity)
-                    <x-activity :activity="$activity"></x-activity>
-                @endforeach
-            </ul>
-        </div>
+
+    <div class="flex flex-wrap">
+        @foreach ($activities as $activity)
+            <x-activity :activity="$activity"></x-activity>
+        @endforeach
     </div>
+
+    <!--Divider-->
+    <hr class="border-b-2 border-gray-600 my-8 mx-4" />
+
+
+
 
 </x-layout>
