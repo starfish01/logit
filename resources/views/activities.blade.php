@@ -9,6 +9,8 @@
         @endforeach
     </div>
 
+    <x-activity_modal :activity="$activities[0]"></x-activity_modal>
+
     <!--Divider-->
     <hr class="border-b-2 border-gray-600 my-8 mx-4" />
 

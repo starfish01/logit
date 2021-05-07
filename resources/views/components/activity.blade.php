@@ -4,11 +4,15 @@
     <div class="bg-gray-900 border border-gray-800 rounded shadow p-2">
         <div class="flex flex-row items-center">
             <div class="flex-shrink pr-4">
-                <div class="rounded p-3 {{ $activity->active_time_log ? 'bg-red-600' : 'bg-green-600' }}">
+                <div
+                    class="activity-log-button rounded p-3 w-16 text-center {{ $activity->active_time_log ? 'bg-red-600 hover:bg-red-800' : 'bg-green-600 hover:bg-green-800' }}">
                     @if ($activity->active_time_log)
-                        <i class="fa fa-stop fa-2x fa-fw fa-inverse"></i>
+                        <i class="fa fa-stop fa-2x fa-fw fa-inverse running-log-hover"></i>
+                        <div class="animate-spin">
+                            <i class="fas fa-spinner fa-2x fa-fw fa-inverse running-log-normal"></i>
+                        </div>
                     @else
-                        <i class="fa fa-play fa-2x fa-fw fa-inverse"></i>
+                        <i class=" fa fa-play fa-2x fa-fw fa-inverse"></i>
                     @endif
                 </div>
             </div>
@@ -28,3 +32,20 @@
         </div>
     </div>
 </div>
+
+<style>
+    .activity-log-button:hover .running-log-normal,
+    .activity-log-button .running-log-hover {
+        display: none;
+    }
+
+    .activity-log-button:hover .running-log-hover,
+    .activity-log-button .running-log-normal {
+        display: inline;
+    }
+
+    .activity-log-button {
+        cursor: pointer;
+    }
+
+</style>
