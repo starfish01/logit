@@ -29,7 +29,9 @@ class Activity extends Model
     {
         $time = 0;
         foreach ($this->time_logs as $key => $log) {
-            $time = $time + ($log->end - $log->start);
+            if (strlen($log->end) !== 0 && $log->end > $log->start) {
+                $time = $time + ($log->end - $log->start);
+            }
         }
         return CarbonInterval::seconds($time)->cascade()->forHumans(['short' => true]);
     }

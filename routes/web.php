@@ -15,9 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-
     return view('activities', [
         'activities' => Activity::get()
     ]);
+});
 
+Route::get('/edit/{activity}', function (Activity $activity) {
+    return view('activity-edit', [
+        'activity' => $activity
+    ]);
 });

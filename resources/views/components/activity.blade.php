@@ -1,9 +1,9 @@
 @props(['activity'])
 
-<div class="w-full md:w-1/2 xl:w-1/3 p-3">
+<div class="w-full md:w-1/2 p-3">
     <div class="bg-gray-900 border border-gray-800 rounded shadow p-2">
         <div class="flex flex-row items-center">
-            <div class="flex-shrink pr-4">
+            <div class="flex-shrink pr-3">
                 <div
                     class="activity-log-button rounded p-3 w-16 text-center {{ $activity->active_time_log ? 'bg-red-600 hover:bg-red-800' : 'bg-green-600 hover:bg-green-800' }}">
                     @if ($activity->active_time_log)
@@ -16,7 +16,7 @@
                     @endif
                 </div>
             </div>
-            <div class="flex-1 text-right md:text-center">
+            <div class="flex-1 text-right pr-3">
                 <h3 class="text-left text-gray-100">
                     {{ $activity->activity }}
                 </h3>
@@ -28,6 +28,11 @@
                     @endif
 
                 </h3>
+            </div>
+            <div>
+                <a class="text-white hover:text-gray-500" href="/edit/{{ $activity->id }}">
+                    <i class="far fa-edit"></i>
+                </a>
             </div>
         </div>
     </div>

@@ -9,12 +9,13 @@ class TimeLog extends Model
 {
     use HasFactory;
 
-    public function activity() {
+    public function activity()
+    {
         $this->hasOne(Activity::class);
     }
 
-    public function getTotalTimeAttribute() {
-        $time = $this->end - $this->start;
-        return $time / 60;
+    public function getStartHourAttribute()
+    {
+        return date('H', $this->start);
     }
 }
