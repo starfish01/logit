@@ -5,7 +5,7 @@
         <div class="flex flex-row items-center">
             <div class="flex-shrink pr-3">
                 <div
-                    class="activity-log-button rounded p-3 w-16 text-center {{ $activity->active_time_log ? 'bg-red-600 hover:bg-red-800' : 'bg-green-600 hover:bg-green-800' }}">
+                    class="activity-log-button cursor-pointer rounded p-3 w-16 text-center {{ $activity->active_time_log ? 'bg-red-600 hover:bg-red-800' : 'bg-green-600 hover:bg-green-800' }}">
                     @if ($activity->active_time_log)
                         <i class="fa fa-stop fa-2x fa-fw fa-inverse running-log-hover"></i>
                         <div class="animate-spin">
@@ -47,10 +47,6 @@
     .activity-log-button:hover .running-log-hover,
     .activity-log-button .running-log-normal {
         display: inline;
-    }
-
-    .activity-log-button {
-        cursor: pointer;
     }
 
 </style>

@@ -5,17 +5,14 @@
         <p class="mb-2 font-semibold  text-gray-100">Update Activity</p>
 
         <div class="mb-2">
-            <div class="mb-3 pt-0 flex">
+            <div class="mb-3 pt-0 md:flex">
                 <input type="text" placeholder="Placeholder" value="{{ $activity->activity }}"
-                    class="px-3 mr-5 flex-1 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring " />
-                <button class="px-4 py-2 text-white font-semibold bg-blue-500 rounded">
+                    class="w-full mb-3 px-3 mr-5 flex-1 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring " />
+                <button class="mb-3 px-4 py-2 text-white font-semibold bg-blue-500 rounded">
                     Save
                 </button>
             </div>
         </div>
-
-
-
 
         <p class="mb-2 font-semibold mb-5 text-gray-100">Time Logged</p>
         @foreach ($activity->time_logs as $log)
@@ -24,7 +21,7 @@
                 @continue
             @endif
 
-            <div class="flex flex-row  items-center">
+            <div class="sm:flex sm:flex-row items-center">
                 <div class="mr-5 mb-5">
                     <div class="px-4 py-2 w-40 bg-white rounded-lg shadow-xl">
                         <div class="flex">
@@ -76,7 +73,7 @@
                     </button>
                 </div>
                 <div class="mr-5 mb-5 font-semibold  text-gray-100">
-                    <button class="px-4 py-2 font-semibold text-red-600">
+                    <button class="sm:px-4 sm:py-2 font-semibold text-red-600">
                         Delete
                     </button>
                 </div>
@@ -84,10 +81,11 @@
 
             </div>
 
+            <hr class="sm:hidden mb-3">
 
         @endforeach
 
-        <hr class="border-b-2 border-gray-600 my-8 mx-4" />
+        {{-- <hr class="border-b-2 border-gray-600 my-8 mx-4" /> --}}
 
         <div class="flex flex-row items-center justify-end p-5">
             <div>
