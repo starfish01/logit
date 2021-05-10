@@ -13,7 +13,7 @@ class Activity extends Model
 
     protected $guarded = [];
 
-    protected $with = ['user', 'time_logs'];
+    protected $with = ['user', 'time_logs', 'tags'];
 
     public function user()
     {
@@ -36,4 +36,11 @@ class Activity extends Model
         return CarbonInterval::seconds($time)->cascade()->forHumans(['short' => true]);
     }
 
+    /**
+     * The tags that belong to the user.
+     */
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'tag_activity');
+    }
 }

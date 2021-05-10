@@ -20,9 +20,13 @@
                 <h3 class="text-left text-gray-100">
                     {{ $activity->activity }}
                 </h3>
+                <div class="text-left ">
+                    @foreach ($activity->tags as $tag)
+                        <x-tag :name="$tag->title"></x-tag>
+                    @endforeach
+                </div>
 
                 <h3 class="text-left text-gray-600">
-                    {{-- TODO Work out the time passed/ display spining wheel --}}
                     @if (!$activity->active_time_log)
                         <span class="font-bold">Total Time:</span> {{ $activity->total_time }}
                     @endif

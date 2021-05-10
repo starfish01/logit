@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Tag;
 use App\Models\User;
-use App\Models\Activity;
 use App\Models\TimeLog;
+use App\Models\Activity;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,10 +21,13 @@ class DatabaseSeeder extends Seeder
         User::truncate();
         Activity::truncate();
         TimeLog::truncate();
+        Tag::truncate();
 
         $user = User::factory()->create([
             'name' => 'John Doe'
         ]);
+
+        $tags = Tag::factory(10)->create();
 
         $activities = Activity::factory(10)->create([
             'user_id' => $user->id
@@ -34,6 +38,10 @@ class DatabaseSeeder extends Seeder
                 'activity_id' => $activity->id,
                 'user_id' => $user->id,
             ]);
+
+            $activity->tags()->attach(
+                $tags->random(rand(1, 3))->pluck('id')->toArray()
+            );
 
             if ($loop === 3 || $loop === 7) {
                 Activity::where('id', $activity->id)->update(['active_time_log' => $timeLogs[0]->id]);

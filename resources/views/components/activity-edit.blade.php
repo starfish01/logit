@@ -5,12 +5,12 @@
         <p class="mb-2 font-semibold  text-gray-100">Update Activity</p>
 
         <div class="mb-2">
-            <div class="mb-3 pt-0 md:flex">
-                <input type="text" placeholder="Placeholder" value="{{ $activity->activity }}"
-                    class="w-full mb-3 px-3 mr-5 flex-1 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring " />
-                <button class="mb-3 px-4 py-2 text-white font-semibold bg-blue-500 rounded">
-                    Save
-                </button>
+            <div class="mb-3">
+
+                <input type="text" placeholder="Activity" value="{{ $activity->activity }}"
+                    class="mb-3 sm:w-9/12 w-full px-3 mr-5 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring " />
+
+                <x-buttons :name="'save'"></x-buttons>
             </div>
         </div>
 
@@ -21,9 +21,11 @@
                 @continue
             @endif
 
-            <div class="sm:flex sm:flex-row items-center">
-                <div class="mr-5 mb-5">
-                    <div class="px-4 py-2 w-40 bg-white rounded-lg shadow-xl">
+
+            <div class="flex flex-wrap ">
+
+                <div class="my-2 px-2 md:w-1/4 w-1/2 ">
+                    <div class=" px-4 py-2 w-40 bg-white rounded-lg shadow-xl">
                         <div class="flex">
                             <div class="pr-2">
                                 <p class=" font-semibold ">Start:</p>
@@ -44,8 +46,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="mr-5 mb-5">
-                    <div class="px-4 py-2 w-40 bg-white rounded-lg shadow-xl">
+
+                <div class="my-2 px-2 md:w-1/4 w-1/2 ">
+                    <div class=" px-4 py-2 w-40 bg-white rounded-lg shadow-xl">
                         <div class="flex">
                             <div class="pr-2">
                                 <p class=" font-semibold ">End:</p>
@@ -67,34 +70,25 @@
                     </div>
                 </div>
 
-                <div class="mr-5 mb-5 ">
-                    <button class="px-4 py-2 text-white font-semibold bg-blue-500 rounded">
-                        Save
-                    </button>
+                <div class="my-2 px-2 md:w-1/4 w-1/2 flex">
+                    <x-buttons :name="'save'"></x-buttons>
                 </div>
-                <div class="mr-5 mb-5 font-semibold  text-gray-100">
-                    <button class="sm:px-4 sm:py-2 font-semibold text-red-600">
-                        Delete
-                    </button>
+
+                <div class="my-2 px-2 md:w-1/4 w-1/2 flex">
+                    <x-buttons :name="'delete'"></x-buttons>
                 </div>
 
 
             </div>
 
-            <hr class="sm:hidden mb-3">
+            <hr class="md:hidden my-3">
 
         @endforeach
 
-        {{-- <hr class="border-b-2 border-gray-600 my-8 mx-4" /> --}}
-
         <div class="flex flex-row items-center justify-end p-5">
             <div>
-                <a href="#" class="px-4 py-2 font-semibold text-red-600">
-                    Delete
-                </a>
-                <a href="/" class="px-4 py-2 font-semibold text-gray-100">
-                    Cancel
-                </a>
+                <x-buttons href="#" :name="'delete'"></x-buttons>
+                <x-buttons href="/" :name="'cancel'"></x-buttons>
             </div>
 
         </div>

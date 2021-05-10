@@ -3,6 +3,5 @@
 Helpful application for logging time
 
 TODO
-- Add add activity functionality route
-- Add Tagging DB (Tag name, id, user id) User can have many, Activity can have one tag 
-- Add tagging functionality to group
+- Add Tagging to create activity
+- Tags should belong to a user
