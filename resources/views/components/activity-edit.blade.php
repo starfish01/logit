@@ -1,17 +1,24 @@
-@props(['activity'])
+@props(['activity', 'allUsersTags'])
+
 <div class="w-full ">
     <div class="flex flex-col  py-5 ">
 
         <p class="mb-2 font-semibold  text-gray-100">Update Activity</p>
 
-        <div class="mb-2">
-            <div class="mb-3">
+        <div class="mb-5">
+            <input type="text" placeholder="Activity" value="{{ $activity->activity }}"
+                class="w-full mb-4 px-3 mr-5 flex-1 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring" />
 
-                <input type="text" placeholder="Activity" value="{{ $activity->activity }}"
-                    class="mb-3 sm:w-9/12 w-full px-3 mr-5 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring " />
+            <x-buttons :name="'save'"></x-buttons>
+        </div>
 
-                <x-buttons :name="'save'"></x-buttons>
+        <div class="mb-5">
+
+            <p class="mb-2 font-semibold  text-gray-100">Tags</p>
+            <div class="mb-4">
+                <x-tag-add :allUsersTags="$allUsersTags" :currentTags="$activity->tags"></x-tag-add>
             </div>
+            <x-buttons name="save"></x-buttons>
         </div>
 
         <p class="mb-2 font-semibold mb-5 text-gray-100">Time Logged</p>

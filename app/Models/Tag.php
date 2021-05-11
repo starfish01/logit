@@ -9,11 +9,13 @@ class Tag extends Model
 {
     use HasFactory;
 
-        /**
-     * The users that belong to the role.
-     */
     public function users()
     {
         return $this->belongsToMany(Activity::class, 'tag_activity');
+    }
+
+    public function tags()
+    {
+        return $this->belongsTo(User::class);
     }
 }

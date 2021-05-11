@@ -7,8 +7,7 @@
         </a>
     </h5>
 
-
-    <x-activity-edit :activity="$activity"></x-activity-edit>
+    <x-activity-edit :allUsersTags="$allUsersTags" :activity="$activity"></x-activity-edit>
 
     <!--Divider-->
     <hr class="border-b-2 border-gray-600 my-8 mx-4" />

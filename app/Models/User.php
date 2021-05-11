@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Tag;
 use App\Models\Activity;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -45,4 +46,19 @@ class User extends Authenticatable
     public function activities() {
         $this->hasMany(Activity::class);
     }
+
+
+    // public function tags()
+    // {
+    //     return $this->hasMany(Tag::class);
+    // }
+
+    public function getArrayOfTagsAttribute()
+    {
+
+        return [];
+        // return $this->user(Tag::class);
+    }
+
+
 }

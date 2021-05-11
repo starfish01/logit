@@ -4,7 +4,7 @@
 
 
     <div class="flex flex-wrap">
-        <x-activity-add></x-activity-add>
+        <x-activity-add :allUsersTags="$allUsersTags"></x-activity-add>
         @foreach ($activities as $activity)
             <x-activity :activity="$activity"></x-activity>
         @endforeach

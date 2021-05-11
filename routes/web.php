@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Tag;
+use App\Models\User;
 use App\Models\Activity;
 use Illuminate\Support\Facades\Route;
 
@@ -16,12 +18,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('activities', [
-        'activities' => Activity::get()
+        'activities' => Activity::get(),
+        'allUsersTags' => Tag::get()
     ]);
 });
 
 Route::get('/edit/{activity}', function (Activity $activity) {
     return view('activity-edit', [
-        'activity' => $activity
+        'activity' => $activity,
+        'allUsersTags' =>  Tag::get()
     ]);
 });
