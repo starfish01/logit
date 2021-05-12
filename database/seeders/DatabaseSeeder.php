@@ -27,7 +27,9 @@ class DatabaseSeeder extends Seeder
             'name' => 'John Doe'
         ]);
 
-        $tags = Tag::factory(10)->create();
+        $tags = Tag::factory(10)->create([
+            'user_id' => $user->id
+        ]);
 
         $activities = Activity::factory(10)->create([
             'user_id' => $user->id

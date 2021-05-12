@@ -7,7 +7,7 @@
 
         <div class="mb-5">
             <input type="text" placeholder="Activity" value="{{ $activity->activity }}"
-                class="w-full mb-4 px-3 mr-5 flex-1 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring" />
+                   class="w-full mb-4 px-3 mr-5 flex-1 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring"/>
 
             <x-buttons :name="'save'"></x-buttons>
         </div>
@@ -28,11 +28,10 @@
                 @continue
             @endif
 
-
             <div class="flex flex-wrap ">
 
                 <div class="my-2 px-2 md:w-1/4 w-1/2 ">
-                    <div class=" px-4 py-2 w-40 bg-white rounded-lg shadow-xl">
+                    <div class="px-4 py-2 w-40 bg-white rounded-lg shadow-xl">
                         <div class="flex">
                             <div class="pr-2">
                                 <p class=" font-semibold ">Start:</p>
@@ -40,14 +39,14 @@
                             <select name="hours" class="bg-transparent text-xl appearance-none outline-none">
                                 @for ($i = 0; $i < 24; $i++)
                                     <option {{ (int) date('H', $log->start) === $i ? 'selected' : '' }}
-                                        value="{{ $i }}">{{ $i }}</option>
+                                            value="{{ $i }}">{{ $i }}</option>
                                 @endfor
                             </select>
                             <span class="text-xl mr-3">:</span>
                             <select name="minutes" class="bg-transparent text-xl appearance-none outline-none mr-4">
                                 @for ($i = 0; $i < 60; $i++)
                                     <option {{ (int) date('i', $log->start) === $i ? 'selected' : '' }}
-                                        value="{{ $i }}">{{ $i < 10 ? '0' . $i : $i }}</option>
+                                            value="{{ $i }}">{{ $i < 10 ? '0' . $i : $i }}</option>
                                 @endfor
                             </select>
                         </div>
@@ -63,14 +62,14 @@
                             <select name="hours" class="bg-transparent text-xl appearance-none outline-none">
                                 @for ($i = 0; $i < 24; $i++)
                                     <option {{ (int) date('H', $log->end) === $i ? 'selected' : '' }}
-                                        value="{{ $i }}">{{ $i }}</option>
+                                            value="{{ $i }}">{{ $i }}</option>
                                 @endfor
                             </select>
                             <span class="text-xl mr-3">:</span>
                             <select name="minutes" class="bg-transparent text-xl appearance-none outline-none mr-4">
                                 @for ($i = 0; $i < 60; $i++)
                                     <option {{ (int) date('i', $log->end) === $i ? 'selected' : '' }}
-                                        value="{{ $i }}">{{ $i < 10 ? '0' . $i : $i }}</option>
+                                            value="{{ $i }}">{{ $i < 10 ? '0' . $i : $i }}</option>
                                 @endfor
                             </select>
                         </div>

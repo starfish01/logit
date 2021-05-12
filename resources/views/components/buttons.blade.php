@@ -16,4 +16,8 @@ $classes = 'cursor-pointer mb-3 px-4 py-2 mr-3 font-semibold text-white rounded 
     <a {{ $attributes(['class' => $classes . 'bg-red-500 hover:bg-red-700']) }}>
         Delete
     </a>
+@elseif ($name === 'edit')
+    <a {{ $attributes(['class' => $classes . 'bg-green-500 hover:bg-green-700']) }}>
+        {{ $slot }}
+    </a>
 @endif

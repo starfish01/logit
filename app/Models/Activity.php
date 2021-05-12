@@ -36,6 +36,11 @@ class Activity extends Model
         return CarbonInterval::seconds($time)->cascade()->forHumans(['short' => true]);
     }
 
+    public function getStartTimeAttribute()
+    {
+
+    }
+
     /**
      * The tags that belong to the user.
      */

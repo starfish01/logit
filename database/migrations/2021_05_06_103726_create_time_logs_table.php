@@ -17,8 +17,8 @@ class CreateTimeLogsTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('activity_id');
-            $table->string('start');
-            $table->string('end');
+            $table->bigInteger('start');
+            $table->bigInteger('end');
             $table->timestamps();
         });
     }

@@ -13,16 +13,9 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $guarded = [];
+
+    protected $with = ['tags'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -48,10 +41,10 @@ class User extends Authenticatable
     }
 
 
-    // public function tags()
-    // {
-    //     return $this->hasMany(Tag::class);
-    // }
+    public function tags()
+    {
+        return $this->hasMany(Tag::class);
+    }
 
     public function getArrayOfTagsAttribute()
     {

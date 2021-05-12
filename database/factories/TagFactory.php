@@ -23,7 +23,8 @@ class TagFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->word
+            'title' => $this->faker->word,
+            'user_id' => User::factory(),
         ];
     }
 }
