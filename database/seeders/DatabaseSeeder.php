@@ -36,6 +36,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         foreach ($activities as $loop => $activity) {
+
+
+
             $timeLogs = TimeLog::factory(10)->create([
                 'activity_id' => $activity->id,
                 'user_id' => $user->id,

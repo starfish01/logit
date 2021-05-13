@@ -30,4 +30,5 @@ class ActivityFactory extends Factory
             'active_time_log' => null
         ];
     }
+
 }

@@ -6,7 +6,7 @@
     <div class="flex flex-wrap">
 
         @foreach ($tags as $tag)
-            <x-buttons href="/edit-tags/{{ $tag->id }}" :name="'edit'">Edit {{ $tag->title }}</x-buttons>
+            <x-buttons href="/edit-tags/{{ $tag->id }}" :name="'edit'">{{ $tag->title }}</x-buttons>
         @endforeach
     </div>
 

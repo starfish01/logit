@@ -36,9 +36,9 @@ class Activity extends Model
         return CarbonInterval::seconds($time)->cascade()->forHumans(['short' => true]);
     }
 
-    public function getStartTimeAttribute()
+    public function getActiveLogAttribute()
     {
-
+        return $this->time_logs->where('id', $this->active_time_log)[0];
     }
 
     /**
