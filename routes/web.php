@@ -64,5 +64,7 @@ Route::get('/analytics', function () {
 })->name('analytics');
 
 Route::get('/export', function () {
-    return view('export', []);
+    return view('export', [
+        'tags' => Tag::get()
+    ]);
 })->name('export');
